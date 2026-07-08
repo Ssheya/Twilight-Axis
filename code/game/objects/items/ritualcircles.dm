@@ -1104,7 +1104,7 @@
 	name = "Rune of Death"
 	desc = "A holy rune of <font color='425363'>Necra.</font> Quiet acceptance stirs within you."
 	icon_state = "necra_chalky"
-	var/deathrites = list("Undermaiden's Bargain", "The Toll")
+	var/deathrites = list("Undermaiden's Bargain", "Vow to the Undermaiden", "The Toll")
 	var/coinslot = 0
 
 
@@ -1172,7 +1172,7 @@
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			spawn(120)
 				icon_state = "necra_chalky"
-		if("Undermaiden's Bargain")
+		if("Vow to the Undermaiden")
 			loc.visible_message(span_warning("[user] sways before the rune, they open their mouth, though no words come out..."))
 			playsound(user, 'sound/vo/mobs/ghost/whisper (3).ogg', 100, FALSE, -1)
 			if(!do_after(user, 6 SECONDS))
@@ -1191,7 +1191,6 @@
 			to_chat(user,span_cultsmall("My devotion to the Undermaiden has allowed me to anoint a vow for this soul...."))
 			if(undermaidenvow(src))
 				playsound(loc, 'sound/vo/mobs/ghost/moan (1).ogg', 100, FALSE, -1)
-				undermaidenbargain(src)
 				user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 				spawn(120)
 					icon_state = "necra_chalky"
